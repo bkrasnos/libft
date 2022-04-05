@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 11:36:15 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:36:17 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/05 11:38:40 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/05 11:38:43 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t		idx;
+	int			idx;
+	int			idx_join;
+	char		*join;
 
+	join = malloc(sizeof(char)
+			*(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
+	if (!s1 || !s2 || !(join))
+		return (NULL);
 	idx = 0;
-	while (idx < n)
-	{
-		if (*((unsigned char *)s1 + idx)
-			== *((unsigned char *)s2 + idx))
-			idx++;
-		else
-			return ((*((unsigned char *)s1 + idx))
-				- *((unsigned char *)s2 + idx));
-	}
-	return (0);
+	idx_join = 0;
+	while (s1[idx])
+		join[idx_join++] = s1[idx++];
+	idx = 0;
+	while (s2[idx])
+		join[idx_join++] = s2[idx++];
+	join[idx_join] = '\0';
+	return (join);
 }

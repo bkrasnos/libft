@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 11:36:15 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:36:17 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/05 11:35:26 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/05 11:35:29 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t		idx;
+	void	*buffer;
 
-	idx = 0;
-	while (idx < n)
-	{
-		if (*((unsigned char *)s1 + idx)
-			== *((unsigned char *)s2 + idx))
-			idx++;
-		else
-			return ((*((unsigned char *)s1 + idx))
-				- *((unsigned char *)s2 + idx));
-	}
-	return (0);
+	buffer = (void *)malloc(size * nmemb);
+	if (!buffer)
+		return (NULL);
+	ft_bzero(buffer, size * nmemb);
+	return (buffer);
 }
