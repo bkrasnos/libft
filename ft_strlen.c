@@ -17,7 +17,15 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (str && str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
+
+// int	main(void)
+// {
+// 	printf("%lu\n", strlen("one"));
+// 	printf("%lu\n", ft_strlen("one"));
+// 	printf("%lu\n", strlen(NULL));
+// 	printf("%lu\n", ft_strlen(NULL));
+// }

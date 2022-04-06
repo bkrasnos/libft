@@ -13,10 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
-# include <string.h>
 # include <stdlib.h>
 # include <stdio.h> 
-# define BUFFER_SIZE 1046
 
 typedef struct s_list
 {
@@ -25,8 +23,8 @@ typedef struct s_list
 }					t_list;
 
 char				*ft_itoa(int n);
-char				*ft_strchr(const char *s, int c);
-char				*ft_strdup(const char *s1);
+char				*ft_strchr(const char *str, int c);
+char				*ft_strdup(const char *str);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strnstr(const char *haystack, const char *needle,
@@ -50,14 +48,14 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					get_next_line(int fd, char **line);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t				ft_strlen(const char *s);
+size_t				ft_strlen(const char *str);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 void				ft_bzero(void *s, size_t n);
-void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
@@ -68,7 +66,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
-void				*ft_memcpy(void *dst, const void *src, size_t n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 #endif

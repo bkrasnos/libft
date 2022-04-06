@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:50:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:50:11 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/06 10:09:57 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/06 10:09:58 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	if (argc == 1)
-		return (1);
-	(void)argv;
-	ft_strlen(NULL);
-	return (0);
+	t_list	*new;
+
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!(new))
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

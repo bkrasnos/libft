@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:50:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:50:11 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/06 10:09:12 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/06 10:09:13 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-int	main(int argc, char **argv)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (argc == 1)
-		return (1);
-	(void)argv;
-	ft_strlen(NULL);
-	return (0);
+	if (!lst)
+		return ;
+	if (del)
+		del(lst->content);
+	free(lst);
 }

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:50:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:50:11 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/06 10:10:06 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/06 10:10:07 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-	if (argc == 1)
-		return (1);
-	(void)argv;
-	ft_strlen(NULL);
-	return (0);
+	int		idx;
+	t_list	*position;
+
+	idx = 0;
+	position = lst;
+	while (position != NULL)
+	{
+		position = position->next;
+		idx++;
+	}
+	return (idx);
 }

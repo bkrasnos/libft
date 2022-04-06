@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:50:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:50:11 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/06 10:08:40 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/06 10:08:42 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-int	main(int argc, char **argv)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (argc == 1)
-		return (1);
-	(void)argv;
-	ft_strlen(NULL);
-	return (0);
+	t_list	*position;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		position = ft_lstlast(*lst);
+		position->next = new;
+	}
 }

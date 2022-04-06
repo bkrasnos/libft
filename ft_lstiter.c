@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:50:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:50:11 by bkrasnos         ###   ########.fr       */
+/*   Created: 2022/04/06 10:09:22 by bkrasnos          #+#    #+#             */
+/*   Updated: 2022/04/06 10:09:23 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str);
-
-int	main(int argc, char **argv)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (argc == 1)
-		return (1);
-	(void)argv;
-	ft_strlen(NULL);
-	return (0);
+	t_list	*position;
+
+	if (!lst)
+		return ;
+	position = lst;
+	while (position != NULL)
+	{
+		(*f)(position->content);
+		position = position->next;
+	}
 }
