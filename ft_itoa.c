@@ -12,54 +12,52 @@
 
 #include "libft.h"
 
-static char	*ft_array(char *x, unsigned int number, long int len)
+static void	ft_putnbrs(long n, char *str, int *i)
 {
-	while (number > 0)
+	if (n > 9)
 	{
-		x[len--] = 48 + (number % 10);
-		number = number / 10;
+		ft_putnbrs(n / 10, str, i);
+		ft_putnbrs(n % 10, str, i);
 	}
-	return (x);
+	else
+		str[(*i)++] = n + '0';
 }
 
-static long int	ft_len(int n)
+size_t	ft_nbrlen(long long n)
 {
-	int					len;
+	size_t	i;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n != 0)
+	i = 1;
+	if (n < 0)
 	{
-		len++;
-		n = n / 10;
+		n *= -1;
+		i++;
 	}
-	return (len);
+	while (n > 9)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char				*x;
-	long int			len;
-	unsigned int		number;
-	int					sign;
+	char	*str;
+	int		i;
+	long	nbr;
 
-	sign = 1;
-	len = ft_len(n);
-	x = (char *)malloc(sizeof(char) * (len + 1));
-	if (!(x))
+	nbr = n;
+	str = malloc(sizeof(char) * (ft_nbrlen(nbr) + 1));
+	if (str == NULL)
 		return (NULL);
-	x[len--] = '\0';
-	if (n == 0)
-		x[0] = '0';
-	if (n < 0)
+	i = 0;
+	if (nbr < 0)
 	{
-		sign *= -1;
-		number = n * -1;
-		x[0] = '-';
+		str[i++] = '-';
+		nbr *= -1;
 	}
-	else
-		number = n;
-	x = ft_array(x, number, len);
-	return (x);
+	ft_putnbrs(nbr, str, &i);
+	str[i] = '\0';
+	return (str);
 }

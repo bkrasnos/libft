@@ -6,7 +6,7 @@
 /*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:46:37 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/04 15:46:38 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/06 11:26:46 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	return (dest);
+}
+
+#include <string.h>
+int	main(void)
+{
+	char	dst[12] = "Hello world";
+	char	dst2[12] = "Hello world";
+
+	printf("FT: %s\n", ft_memmove(dst+2, dst, 5));
+	printf("OR: %s\n", memmove(dst2+2, dst2, 5));
+	return (0);
 }

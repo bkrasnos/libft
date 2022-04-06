@@ -6,7 +6,7 @@
 #    By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 11:46:58 by bkrasnos          #+#    #+#              #
-#    Updated: 2022/04/05 11:42:22 by bkrasnos         ###   ########.fr        #
+#    Updated: 2022/04/06 16:27:25 by bkrasnos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= libft.a
 
 SRCS		= ft_memset.c \
 			  ft_bzero.c \
-			  ft_memcpy.c \ \
+			  ft_memcpy.c \
 			  ft_memmove.c \
 			  ft_memchr.c \
 			  ft_memcmp.c \
@@ -60,7 +60,7 @@ OBJS		= $(SRCS:%.c=%.o)
 
 BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
 
-FLAGS		= -Wall -Werror -Wextra -fsanitize=address
+FLAGS		= -Wall -Werror -Wextra
 
 $(NAME):
 	gcc $(FLAGS) -c $(SRCS) -I ./
