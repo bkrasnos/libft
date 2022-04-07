@@ -12,71 +12,87 @@
 
 #include "libft.h"
 
-int	count_strings(char const *s, char c)
+int	check_separator(char c, char *charset)
 {
-	int	act_pos;
-	int	str_count;
+	int	i;
 
-	act_pos = 0;
-	str_count = 0;
-	if (s[act_pos] == c)
-		str_count--;
-	while (s[act_pos] != '\0')
+	i = 0;
+	while (charset[i] != '\0')
 	{
-		if (s[act_pos] == c && s[act_pos + 1] != c && s[act_pos + 1] != '\0')
-			str_count++;
-		act_pos++;
+		if (c == charset[i])
+			return (1);
+		i++;
 	}
-	str_count++;
-	return (str_count);
+	return (0);
 }
 
-char	*malloc_strings(const char *s, char c)
+int	count_strings(char *str, char *charset)
 {
-	char	*word;
-	int		i;
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\0' && check_separator(str[i], charset))
+			i++;
+		if (str[i] != '\0')
+			count++;
+		while (str[i] != '\0' && !check_separator(str[i], charset))
+			i++;
+	}
+	return (count);
+}
+
+int	ft_strlen_sep(char *str, char *charset)
+{
+	int	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (str[i] && !check_separator(str[i], charset))
 		i++;
-	word = (char *)malloc(sizeof(char) * (i + 1));
-	if (!word)
-		return (NULL);
+	return (i);
+}
+
+char	*ft_word(char *str, char *charset)
+{
+	int		len_word;
+	int		i;
+	char	*word;
+
 	i = 0;
-	while (s[i] && s[i] != c)
+	len_word = ft_strlen_sep(str, charset);
+	word = (char *)malloc(sizeof(char) * (len_word + 1));
+	while (i < len_word)
 	{
-		word[i] = s[i];
+		word[i] = str[i];
 		i++;
 	}
 	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *c)
 {
-	int		words;
-	char	**tab;
+	char	**strings;
 	int		i;
 
-	if (!s)
-		return (NULL);
-	words = count_strings(s, c);
-	tab = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!tab)
-		return (NULL);
 	i = 0;
-	while (*s)
+	strings = (char **)malloc(sizeof(char *)
+			* (count_strings(s, c) + 1));
+	while (*s != '\0')
 	{
-		while (*s && *s == c)
+		while (*s != '\0' && check_separator(*s, c))
 			s++;
-		if (*s && *s != c)
+		if (*s != '\0')
 		{
-			tab[i] = malloc_strings(s, c);
+			strings[i] = ft_word(s, c);
 			i++;
-			while (*s && *s != c)
-				s++;
 		}
+		while (*s && !check_separator(*s, c))
+			s++;
 	}
-	tab[i] = NULL;
-	return (tab);
+	strings[i] = 0;
+	return (strings);
 }

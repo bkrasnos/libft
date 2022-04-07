@@ -15,23 +15,26 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	cpy_len;
+	size_t	i;
+	size_t	j;
+	size_t	dest_length;
+	size_t	src_length;
 
-	if (!dst)
-		return (0);
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dst_len >= size)
-		return (size + src_len);
-	dst += dst_len;
-	size -= dst_len;
-	if (src_len >= size)
-		cpy_len = size - 1;
-	else
-		cpy_len = src_len;
-	ft_memcpy(dst, src, cpy_len);
-	*(dst + cpy_len) = 0;
-	return (dst_len + src_len);
+	src_length = ft_strlen(src);
+	dest_length = ft_strlen(dst);
+	j = dest_length;
+	i = 0;
+	if (dest_length < size - 1 && size > 0)
+	{
+		while (src[i] && dest_length + i < size - 1)
+		{
+			dst[j] = src[i];
+			j++;
+			i++;
+		}
+		dst[j] = 0;
+	}
+	if (dest_length >= size)
+		dest_length = size;
+	return (dest_length + src_length);
 }

@@ -27,14 +27,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-#include <string.h>
-int	main(void)
-{
-	char	dst[12] = "Hello world";
-	char	dst2[12] = "Hello world";
+// #include <string.h>
+// int	main(void)
+// {
+// 	char	dst[12] = "Hello world";
+// 	char	dst2[12] = "Hello world";
 
-	printf("FT: %s\n", ft_memcpy(dst+2, dst, 5));
-	printf("OR: %s\n", memcpy(dst2+2, dst2, 5));
-	return (0);
-}
-
+// 	printf("FT: %s\n", ft_memcpy(dst+2, dst, 5));
+// 	printf("OR: %s\n", memcpy(dst2+2, dst2, 5));
+// 	return (0);
+// }
