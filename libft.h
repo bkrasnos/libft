@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:42:13 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/07 16:03:52 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:22:46 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 }					t_list;
 
 char				*ft_itoa(int n);
-char				*ft_strchr(const char *str, int c);
+char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *str);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));

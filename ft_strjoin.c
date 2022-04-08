@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:38:40 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:38:43 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:04:01 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int			idx_join;
 	char		*join;
 
+	if (!s1 || !s2)
+		return (0);
 	join = malloc(sizeof(char)
 			*(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
 	if (!s1 || !s2 || !(join))

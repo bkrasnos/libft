@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:40:30 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/07 16:03:58 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:09:00 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s_new = malloc(sizeof(char) * (len + 1));
 	if (!s_new)
 		return (NULL);
-	while (*s1 && isset(*1, set))
+	while (*s1 && isset(*s1, set))
 		s1++;
 	while (len--)
 		s_new[i++] = *s1++;
