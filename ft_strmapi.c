@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:39:21 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:39:22 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:04:42 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	s_new[i] = '\0';
 	return (s_new);
 }
+
+// int		main(void)
+// {
+// 	char	s[] = "Hello world!";
+// 	char	*mapi;
+
+// 	printf("Initial str is '%s'\n", s);
+// 	mapi = ft_strmapi(s, NULL);
+// 	printf("Mapped str is '%s'\n", mapi);
+// 	return (0);
+// }

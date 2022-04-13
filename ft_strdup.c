@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:38:18 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:38:20 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:00:53 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,13 @@ char	*ft_strdup(const char *str)
 	dest[idx] = '\0';
 	return (dest);
 }
+
+// int		main()
+// {
+// 	char	src[] = "Copy me";
+// 	char	src2[] = "Me too!";
+
+// 	printf("dest(ft) is %s\n", ft_strdup((void *)0));
+// 	printf("dest(or) is %s\n", strdup((void *)0));
+// 	return (0);
+// }

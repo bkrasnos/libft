@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 11:46:58 by bkrasnos          #+#    #+#              #
-#    Updated: 2022/04/06 16:27:25 by bkrasnos         ###   ########.fr        #
+#    Updated: 2022/04/12 13:36:24 by bkrasnos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS		= ft_memset.c \
 			  ft_putchar_fd.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
-			  ft_putnbr_fd.c
+			  ft_putnbr_fd.c \
+			  ft_striteri.c
 
 BNS_SRCS	= ft_lstnew.c \
 			  ft_lstadd_front.c \

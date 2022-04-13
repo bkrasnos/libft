@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:41:34 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:41:43 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:30:11 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*s_new;
-	size_t	i;
+	char	*substr;
+	size_t	len_s;
+	size_t	new_len;
 
-	i = 0;
 	if (!s)
-		return (NULL);
-	if (start >= (size_t)ft_strlen(s))
+		return (0);
+	len_s = ft_strlen(s);
+	new_len = 0;
+	while (s[start + new_len] && len > new_len)
+		++new_len;
+	substr = (char *)malloc(sizeof(*substr) * (new_len + 1));
+	if (NULL == substr)
+		return (0);
+	if (len_s < start)
 	{
-		len = 0;
-		start = 0;
+		ft_memset(substr, 0, new_len + 1);
+		return (substr);
 	}
-	s_new = malloc(sizeof(char) * (len + 1));
-	if (!s_new)
-		return (NULL);
-	while (len-- && s[start])
-		s_new[i++] = s[start++];
-	s_new[i] = '\0';
-	return (s_new);
+	ft_strlcpy(substr, s + start, new_len + 1);
+	return (substr);
 }

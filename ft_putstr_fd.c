@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:37:17 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/08 16:10:52 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/13 16:56:45 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,14 @@ void	ft_putstr_fd(char *s, int fd)
 		idx++;
 	}
 }
+
+// int		main(void)
+// {
+// 	char	s[] = "Hello world!";
+// 	int		fd;
+
+// 	fd = 1;
+// 	ft_putstr_fd(s, fd);
+// 	ft_putstr_fd("\n", fd);
+// 	return (0);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:09:47 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:09:48 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/12 09:30:52 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_list;
 	t_list	*save;
 
-	if (!lst || !f || !del)
-		return (0);
+	if (!lst || !f)
+		return (NULL);
 	new_list = ft_lstnew(f(lst->content));
 	if (!new_list)
-		return (0);
+		return (NULL);
 	save = new_list;
 	lst = lst->next;
 	while (lst)
@@ -30,11 +30,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new_list->next)
 		{
 			ft_lstclear(&save, del);
-			return (0);
+			return (NULL);
 		}
 		new_list = new_list->next;
 		lst = lst->next;
 	}
-	new_list->next = NULL;
 	return (save);
 }

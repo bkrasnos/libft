@@ -6,122 +6,114 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:37:52 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/08 16:26:31 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/13 16:58:59 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-int	check_separator(char s, char c)
-{
-	if (s == c)
-		return (1);
-	return (0);
-}
-
-int	count_strings(const char *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	i;
-	int	count;
+	int	words;
 
-	count = 0;
 	i = 0;
+	words = 0;
 	while (s[i])
 	{
-		while (s[i] != '\0' && check_separator(s[i], c))
-			i++;
-		if (s[i] != '\0')
-			count++;
-		while (s[i] != '\0' && !check_separator(s[i], c))
-			i++;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			words++;
+		i++;
 	}
-	return (count);
+	return (words);
 }
 
-int	ft_strlen_sep(char const *s, char c)
+static int	len_words(char const *s, char c)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (s[i] != c && s[i] != '\0')
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+static void	*leak(char **spl, int words)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] && !check_separator(s[i], c))
-		i++;
-	return (i);
-}
-
-char	*ft_word(const char *s, char c)
-{
-	int		len_word;
-	int		i;
-	char	*word;
-
-	i = 0;
-	len_word = ft_strlen_sep(s, c);
-	word = (char *)malloc(sizeof(char) * (len_word + 1));
-	if (word == NULL)
-		return (0);
-	while (i < len_word)
+	while (i < words)
 	{
-		word[i] = s[i];
+		free(spl[i]);
 		i++;
 	}
-	word[i] = '\0';
-	return (word);
+	free(spl);
+	return (NULL);
+}
+
+static char	**fill(char const *s, char **spl, char c, int words)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	i = -1;
+	while (++i < words)
+	{
+		while (*s == c)
+			s++;
+		len = len_words(s, c);
+		spl[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!spl[i])
+			return (leak(spl, i));
+		j = 0;
+		while (j < len)
+			spl[i][j++] = *s++;
+		spl[i][j] = '\0';
+	}
+	spl[i] = NULL;
+	return (spl);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strings;
-	int		i;
+	char	**spl;
+	int		words;
 
 	if (!s)
-		return (0);
-	i = 0;
-	strings = (char **)malloc(sizeof(char *)
-			* (count_strings(s, c) + 1));
-	if (strings == NULL)
-		return (0);
-	while (*s != '\0')
-	{
-		while (*s != '\0' && check_separator(*s, c))
-			s++;
-		if (*s != '\0')
-		{
-			strings[i] = ft_word(s, c);
-			i++;
-		}
-		while (*s && !check_separator(*s, c))
-			s++;
-	}
-	strings[i] = 0;
-	return (strings);
+		return (NULL);
+	words = count_words(s, c);
+	spl = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!spl)
+		return (NULL);
+	spl = fill(s, spl, c, words);
+	return (spl);
 }
 
-// int	main(void)
+// int		main(void)
 // {
+// 	// char	s[] = "dfdfgk";
+// 	char	s[] = "klgvjknvzdgob odi f ";
+// 	// char	s[] = "gg";
+// 	char	c;
 // 	char	**spl;
-// 	int	i;
+// 	int		i;
+
+// 	c = 'a';
+// 	ret = ft_split(s, c);
 // 	i = 0;
-// 	// spl = ft_split("   lorem   ipsum dolor     sit amet,
-// consectetur   adipiscing elit. Sed non risus.
-// Suspendisse   ", ' ');
-// 	// spl =  ft_split("          ", ' ');
-// 	spl =  ft_split(NULL, ' ');
-// 	// while (spl[i])
-// 	// {
-// 	// 	write(1, spl[i], ft_strlen(spl[i]));
-// 	// 	i++;
-// 	// 	write(1, "\n", 1);
-// 	// }
-// 	if (!spl)
-// 	{
-// 		printf("null\n");
-// 		return (0);
-// 	}
 // 	while (spl[i])
 // 	{
-// 		printf("str[%d] |%s|\n", i, spl[i]);
+// 		printf("str[%d] is '%s'\n", i, spl[i]);
 // 		++i;
 // 	}
+// 	printf("Amount of strings is %d\n", i);
+// 	free(spl);
 // 	return (0);
 // }
