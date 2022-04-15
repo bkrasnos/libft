@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:36:15 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/05 11:36:17 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:09:40 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	const char	buffer1[] = "t\200a";
+// 	const char	buffer2[] = "t\0a";
+// 	const char	buffer3[] = "t\200a";
+// 	const char	buffer4[] = "t\0a";
+
+// 	printf("ret(ft) is %d\n", ft_memcmp(buffer1, buffer2, 3));
+// 	printf("ret(or) is %d\n", memcmp(buffer3, buffer4, 3));
+// 	return (0);
+// }

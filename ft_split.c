@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:37:52 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 16:58:59 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:12:49 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static char	**fill(char const *s, char **spl, char c, int words)
 	int	j;
 	int	len;
 
-	i = -1;
-	while (++i < words)
+	i = 0;
+	while (i < words)
 	{
 		while (*s == c)
 			s++;
@@ -76,6 +76,7 @@ static char	**fill(char const *s, char **spl, char c, int words)
 		while (j < len)
 			spl[i][j++] = *s++;
 		spl[i][j] = '\0';
+		++i;
 	}
 	spl[i] = NULL;
 	return (spl);
@@ -96,7 +97,7 @@ char	**ft_split(char const *s, char c)
 	return (spl);
 }
 
-// int		main(void)
+// int	main(void)
 // {
 // 	// char	s[] = "dfdfgk";
 // 	char	s[] = "klgvjknvzdgob odi f ";

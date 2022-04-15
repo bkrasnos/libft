@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:41:34 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/12 11:30:11 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:15:56 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(substr, s + start, new_len + 1);
 	return (substr);
 }
+
+// int	main(void)
+// {
+// 	char	s[] = "Hello world!";
+// 	char	*ret;
+
+// 	ret = ft_substr(s, 1, 1);
+// 	if (NULL == ret)
+// 		printf("Ret is null!\n");
+// 	else
+// 		printf("Ret is '%s'\n", ret);
+// 	free(ret);
+// 	return (0);
+// }

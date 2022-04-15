@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:35:42 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 16:52:30 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 09:56:52 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static void	ft_putnbrs(long n, char *str, int *i)
 		ft_putnbrs(n % 10, str, i);
 	}
 	else
-		str[(*i)++] = n + '0';
+	{
+		str[(*i)] = n + '0';
+		++(*i);
+	}
 }
 
 size_t	ft_nbrlen(long long n)
@@ -54,8 +57,9 @@ char	*ft_itoa(int n)
 	i = 0;
 	if (nbr < 0)
 	{
-		str[i++] = '-';
+		str[i] = '-';
 		nbr *= -1;
+		i++;
 	}
 	ft_putnbrs(nbr, str, &i);
 	str[i] = '\0';

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkrasnos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:09:02 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/06 10:09:04 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:04:43 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,15 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = position;
 	}
 }
+
+// int	main(void)
+// {
+// 	t_list	*head;
+// 	int		n;
+
+// 	n = 5;
+// 	head = ft_lstnew((void *)&n);
+// 	// head = NULL;
+// 	ft_lstclear(&head, NULL);
+// 	return (0);
+// }

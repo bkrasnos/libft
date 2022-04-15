@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:38:18 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 17:00:53 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:12:42 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strdup(const char *str)
 	return (dest);
 }
 
-// int		main()
+// int	main()
 // {
 // 	char	src[] = "Copy me";
 // 	char	src2[] = "Me too!";

@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:40:30 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/08 14:09:00 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:15:10 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s_new[i] = '\0';
 	return (s_new);
 }
+
+// int	main(void)
+// {
+// 	char	*strtrim;
+// 	char s1[] = "          ";
+
+// 	if (!(strtrim = ft_strtrim(s1, " ")))
+// 		printf("NULL\n");
+// 	else
+// 		printf("%s\n", strtrim);
+// 	if (strtrim == s1)
+// 		printf("A new string was not returned\n");
+// 	return (0);
+// }

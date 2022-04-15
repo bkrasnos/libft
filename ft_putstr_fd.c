@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:37:17 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 16:56:45 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:12:55 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-// int		main(void)
+// int	main(void)
 // {
 // 	char	s[] = "Hello world!";
 // 	int		fd;

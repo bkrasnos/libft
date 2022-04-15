@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:38:40 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 17:02:49 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 09:34:21 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	join = malloc(sizeof(char)
 			*(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
-	if (!s1 || !s2 || !(join))
+	if (!join)
 		return (NULL);
 	idx = 0;
 	idx_join = 0;

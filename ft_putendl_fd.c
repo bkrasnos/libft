@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:36:57 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 16:55:01 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:13:03 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 }
 
-// int		main(void)
+// int	main(void)
 // {
 // 	char	s[] = "Hello world!";
 // 	int		fd;

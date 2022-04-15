@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:42:02 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 17:09:08 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/14 11:35:00 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	ft_toupper(int c)
 
 // int	main(void)
 // {
-// 	int		ch;
+// 	int		c;
 
-// 	ch = 'a';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
-// 	ch = 'A';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
-// 	ch = '0';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
-// 	ch = ' ';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
-// 	ch = 'z';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
-// 	ch = '@';
-// 	printf("c was '%c' and now is '%c'\n", ch, ft_toupper(ch));
+// 	c = 'a';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
+// 	c = 'A';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
+// 	c = '0';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
+// 	c = ' ';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
+// 	c = 'z';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
+// 	c = '@';
+// 	printf("c was '%c' and now is '%c'\n", c, ft_toupper(c));
 // 	return (0);
 // }
