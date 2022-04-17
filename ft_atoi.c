@@ -6,10 +6,11 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:35:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 11:15:42 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/17 13:40:44 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "libft.h"
 
 static int	ft_size_check(int size)
@@ -22,20 +23,20 @@ static int	ft_size_check(int size)
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		size;
-	int		nb;
-	int		digits;
+	long long		i;
+	long long		nb;
+	int				sign;
+	int				digits;
 
 	digits = 0;
 	i = 0;
-	size = 1;
+	sign = 1;
 	nb = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		size = 1 - 2 * (str[i] == '-');
+		sign = 1 - 2 * (str[i] == '-');
 		i++;
 	}
 	while (str[i] >= 48 && str[i] <= 57)
@@ -44,11 +45,23 @@ int	ft_atoi(const char *str)
 		++i;
 		++digits;
 		if (digits > 19)
-			return (ft_size_check(size));
+			return (ft_size_check(sign));
 	}
-	return (size * nb);
+	return (sign * nb);
 }
 
+// if (nb > LLONG_MAX)
+// 	return (-1);
+// if (nb < LLONG_MIN)
+// 	return (1);
+// int	main(void)
+// {
+// 	char *str = "9223372036854775808";
+// 	printf("ft_atoi = %d\n", ft_atoi(str));
+// 	printf("atoi = %d\n", atoi(str));
+// 	return (0);
+// }
+//
 // int	main(void)
 // {
 // 	char	str[] = "  \t--+-+02k34ab567";
@@ -63,7 +76,7 @@ int	ft_atoi(const char *str)
 // 	char	str10[] = "500000000000000000";
 // 	char	str11[] = "50000000000000000000000";
 // 	char	str12[] = "-500000000000000000000000000000000000000000";
-// 	char	str13[] = "-9223372036854775807";
+// 	char	str13[] = "92233720368547755809";
 // 	int		ft;
 // 	int		or;
 
@@ -115,9 +128,9 @@ int	ft_atoi(const char *str)
 // 	printf("FT: Test 12 %s\n%d\n", str12, ft);
 // 	or = atoi("-500000000000000000000000000000000000000000");
 // 	printf("OR: Test 12 %s\n%d\n", str12, or);
-// 	ft = ft_atoi("-9223372036854775807");
+// 	ft = ft_atoi("92233720368547755809");
 // 	printf("FT: Test 13 %s\n%d\n", str13, ft);
-// 	or = atoi("-9223372036854775807");
+// 	or = atoi("92233720368547755809");
 // 	printf("OR: Test 13 %s\n%d\n", str13, or);
 // 	return (0);
 // }

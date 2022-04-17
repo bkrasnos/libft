@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:35:26 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/13 14:12:12 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/17 13:22:51 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	i;
 
 	i = 0;
-	if ((count * size) / size != count)
-		return (NULL);
 	str = (char *)malloc(count * size);
 	if (str == NULL)
 		return (NULL);
@@ -30,6 +28,9 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (str);
 }
+
+// if ((count * size) / size != count)
+// 	return (NULL);
 
 // int	main(void)
 // {
