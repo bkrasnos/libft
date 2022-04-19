@@ -6,16 +6,16 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:35:08 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/17 13:40:44 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:43:02 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "libft.h"
 
-static int	ft_size_check(int size)
+static int	ft_size_control(int sign)
 {
-	if (size < 0)
+	if (sign < 0)
 		return (0);
 	else
 		return (-1);
@@ -23,40 +23,33 @@ static int	ft_size_check(int size)
 
 int	ft_atoi(const char *str)
 {
-	long long		i;
-	long long		nb;
-	int				sign;
-	int				digits;
+	int						i;
+	int						sign;
+	unsigned long long		n;
 
-	digits = 0;
 	i = 0;
 	sign = 1;
-	nb = 0;
+	n = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
+		++i;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		sign = 1 - 2 * (str[i] == '-');
-		i++;
+		++i;
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
-		nb = nb * 10 + str[i] - '0';
+		n = n * 10 + str[i] - '0';
 		++i;
-		++digits;
-		if (digits > 19)
-			return (ft_size_check(sign));
+		if (n > LLONG_MAX)
+			return (ft_size_control(sign));
 	}
-	return (sign * nb);
+	return (sign * n);
 }
 
-// if (nb > LLONG_MAX)
-// 	return (-1);
-// if (nb < LLONG_MIN)
-// 	return (1);
 // int	main(void)
 // {
-// 	char *str = "9223372036854775808";
+// 	char *str = "9223372036854775807";
 // 	printf("ft_atoi = %d\n", ft_atoi(str));
 // 	printf("atoi = %d\n", atoi(str));
 // 	return (0);

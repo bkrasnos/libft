@@ -6,7 +6,7 @@
 /*   By: bkrasnos <bkrasnos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:38:40 by bkrasnos          #+#    #+#             */
-/*   Updated: 2022/04/17 13:38:33 by bkrasnos         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:41:58 by bkrasnos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int			idx_join;
 	char		*join;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (0);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
 	join = malloc(sizeof(char)
 			*(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1));
 	if (!join)
